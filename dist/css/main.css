@@ -1,3 +1,5 @@
+/*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
+
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -24,6 +26,11 @@ html {
  *
  * Customize the background color to match your design.
  */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
 
 ::selection {
     background: #b3d4fc;
@@ -131,6 +138,7 @@ textarea {
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
     clip-path: inset(50%);
     height: 1px;
     margin: -1px;
@@ -150,6 +158,7 @@ textarea {
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
     clip: auto;
+    -webkit-clip-path: none;
     clip-path: none;
     height: auto;
     margin: 0;
@@ -200,6 +209,7 @@ textarea {
 }
 
 @media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 1.25dppx),
        (min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
@@ -340,8 +350,14 @@ input:focus {
 .container {
     box-sizing: border-box;
     border: 3px solid pink;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     height: 100vh;
 }
@@ -353,13 +369,19 @@ input:focus {
     padding: 10px;
     font-size: 20px;
     /* flex-basis: 500px;*/
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
     flex-grow: 1;
+    -ms-flex-preferred-size: 250px;
     flex-basis: 250px;
 }
 .box-2 {
+    -webkit-box-flex: 5;
+    -ms-flex-positive: 5;
     flex-grow: 5;
 }
 .box-4 {
+    -ms-flex-preferred-size: 100px;
     flex-basis: 100px;
 }
 
@@ -380,15 +402,21 @@ input:focus {
     background-color: #222;
 }
 .flex-nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 .flex-nav ul li {
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
     flex: 3;
 }
 .flex-nav ul .social {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 .flex-nav ul li a {
@@ -409,21 +437,27 @@ input:focus {
 
 @media screen and (max-width: 1000px) {
     .flex-nav ul {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
     .flex-nav ul li {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
         flex: 1 1 50%;
     }
     .flex-nav ul .social {
+        -ms-flex-preferred-size: 25%;
         flex-basis: 25%;
     }
 }
 
 @media screen and (max-width: 500px) {
     .flex-nav ul li {
+        -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
     }
     .flex-nav ul .social {
+        -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
     }
 }
@@ -434,15 +468,23 @@ input:focus {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .slider-nav ul li {
     text-align: center;
+    -webkit-box-flex: 2;
+    -ms-flex: 2;
     flex: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 .slider-nav ul .arrow {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 
@@ -454,8 +496,13 @@ input:focus {
     color: #fff;
     display: block;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 .slider-nav ul li a:hover {
@@ -474,7 +521,11 @@ input:focus {
 /* Pricing grid */
 
 .price-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 0 auto;
     max-width: 800px;
@@ -482,8 +533,13 @@ input:focus {
 }
 
 .price-grid .plan {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding: 10px;
     margin: 20px;
@@ -494,6 +550,7 @@ input:focus {
 }
 
 .price-grid .plan > * {
+    -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
 }
 
@@ -526,6 +583,7 @@ input:focus {
     background-color: #4854a0;
     margin: 20px 0;
     /* flex: 1; */
+     -ms-flex-item-align: end;
      align-self: flex-end; 
 }
 
@@ -533,13 +591,20 @@ input:focus {
 /* Equal height columns and left over elements */
 
 .elements {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     /* flex-direction: column; */
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
 }
 
 .elements .item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 calc(33.3333% - 20px);
     flex: 0 1 calc(33.3333% - 20px);
     margin: 10px;
     padding: 20px;
@@ -549,13 +614,21 @@ input:focus {
 /* single line form */
 
 .flex-cover {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     height: calc(100vh - 120px);
 }
 
 .flex-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background: #fff;    
     padding: 0;
@@ -576,6 +649,7 @@ input:focus {
 }
 
 .flex-form input[type="search"] {
+    -ms-flex-preferred-size: 260px;
     flex-basis: 260px;
     min-width: 260px
 }
@@ -586,7 +660,12 @@ input:focus {
     background-color: #fff;
     border: 7px solid #222;
     border-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     max-width: 540px;
     height: 90vh; 
@@ -595,17 +674,27 @@ input:focus {
 
 .flex-app header {
     background-color: #4854a0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     /* flex-direction: row; */
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 1rem;
 }
 .flex-app header h1 {
+    -webkit-box-flex: 6;
+    -ms-flex: 6;
     flex: 6;
     text-align: center;    
 }
 .flex-app header .button {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     display: block;
     text-align: center;
@@ -636,6 +725,8 @@ input:focus {
 }
 
 .flex-app > * {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
 }
 
@@ -643,11 +734,19 @@ input:focus {
     background-color: #4854a0;
     color: #fff;
     padding: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 .flex-app .icon-bar > * {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     text-align: center;
 }
